@@ -48,3 +48,5 @@ E:\Coding Dojo\C#\Asp\LogReg\obj\Debug\net5.0\LogReg.dll
 E:\Coding Dojo\C#\Asp\LogReg\obj\Debug\net5.0\ref\LogReg.dll
 E:\Coding Dojo\C#\Asp\LogReg\obj\Debug\net5.0\LogReg.pdb
 E:\Coding Dojo\C#\Asp\LogReg\obj\Debug\net5.0\LogReg.genruntimeconfig.cache
+E:\Coding Dojo\C#\Asp\LogReg\obj\Debug\net5.0\Razor\Views\Home\_Login.cshtml.g.cs
+E:\Coding Dojo\C#\Asp\LogReg\obj\Debug\net5.0\Razor\Views\Home\_Register.cshtml.g.cs

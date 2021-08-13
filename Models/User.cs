@@ -21,7 +21,6 @@ namespace LogReg.Models
 
         [Required(ErrorMessage = "Is required.")]
         [EmailAddress]
-        [Display(Name = "Email")]
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Is requried.")]
