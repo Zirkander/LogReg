@@ -1,0 +1,8 @@
+E:\Coding Dojo\C#\Asp\LogReg\obj\Debug\net5.0\LogReg.csproj.AssemblyReference.cache
+E:\Coding Dojo\C#\Asp\LogReg\obj\Debug\net5.0\LogReg.GeneratedMSBuildEditorConfig.editorconfig
+E:\Coding Dojo\C#\Asp\LogReg\obj\Debug\net5.0\LogReg.AssemblyInfoInputs.cache
+E:\Coding Dojo\C#\Asp\LogReg\obj\Debug\net5.0\LogReg.AssemblyInfo.cs
+E:\Coding Dojo\C#\Asp\LogReg\obj\Debug\net5.0\LogReg.csproj.CoreCompileInputs.cache
+E:\Coding Dojo\C#\Asp\LogReg\obj\Debug\net5.0\LogReg.MvcApplicationPartsAssemblyInfo.cache
+E:\Coding Dojo\C#\Asp\LogReg\obj\Debug\net5.0\LogReg.RazorAssemblyInfo.cache
+E:\Coding Dojo\C#\Asp\LogReg\obj\Debug\net5.0\LogReg.RazorAssemblyInfo.cs
