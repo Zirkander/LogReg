@@ -13,6 +13,7 @@ namespace LogReg.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ILogger<HomeController> _logger;
         private LogRegContext db;
 
         public HomeController(LogRegContext context)
@@ -20,9 +21,29 @@ namespace LogReg.Controllers
             db = context;
         }
 
+        private int? uid
+        {
+            get
+            {
+                return HttpContext.Session.GetInt32("UserId");
+            }
+        }
+
+        private bool isLoggedIn
+        {
+            get
+            {
+                return uid != null;
+            }
+        }
+
         [HttpGet("")]
         public IActionResult Index()
         {
+            if (isLoggedIn)
+            {
+                return RedirectToAction("LoggedIn");
+            }
             return View("Index");
         }
 
@@ -49,7 +70,7 @@ namespace LogReg.Controllers
 
             HttpContext.Session.SetInt32("UserID", newUser.UserID);
             HttpContext.Session.SetString("FirstName", newUser.FirstName);
-            return View("LoggedIn");
+            return RedirectToAction("LoggedIn");
 
         }
 
@@ -79,7 +100,13 @@ namespace LogReg.Controllers
             HttpContext.Session.SetInt32("UserID", dbUser.UserID);
             HttpContext.Session.SetString("FirstName", dbUser.FirstName);
             return View("LoggedIn");
+        }
 
+        [HttpPost("/logout")]
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
