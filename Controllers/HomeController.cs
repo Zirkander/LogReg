@@ -47,9 +47,38 @@ namespace LogReg.Controllers
             db.Users.Add(newUser);
             db.SaveChanges();
 
-            HttpContext.Session.SetInt32("UserId", newUser.UserID);
+            HttpContext.Session.SetInt32("UserID", newUser.UserID);
             HttpContext.Session.SetString("FirstName", newUser.FirstName);
-            return RedirectToAction("All", "posts");
+            return View("LoggedIn");
+
+        }
+
+        [HttpPost("/Login")]
+        public IActionResult Login(LoginUser loginUser)
+        {
+            if (ModelState.IsValid == false)
+            {
+                return View("Index");
+            }
+
+            User dbUser = db.Users.FirstOrDefault(user => user.Email == loginUser.LoginEmail);
+
+            if (db.Users == null)
+            {
+                ModelState.AddModelError("LoginError", "Email not found.");
+                return View("Index");
+            }
+            PasswordHasher<LoginUser> hasher = new PasswordHasher<LoginUser>();
+            var pwCompareResult = hasher.VerifyHashedPassword(loginUser, dbUser.Password, loginUser.LoginPassword);
+
+            if (pwCompareResult == 0)
+            {
+                ModelState.AddModelError("LoginPassword", "Invalid Password.");
+                return View("Index");
+            }
+            HttpContext.Session.SetInt32("UserID", dbUser.UserID);
+            HttpContext.Session.SetString("FirstName", dbUser.FirstName);
+            return View("LoggedIn");
 
         }
 
